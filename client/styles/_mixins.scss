@@ -1,0 +1,13 @@
+@mixin button {
+  height: 2.5em;
+  border-radius: 1.25em;
+  border: none;
+  padding: 0 1.2em;
+  margin: 0 0.8em;
+  outline: none;
+}
+
+@mixin blackBackground {
+  background-color: black;
+  color: white;
+}

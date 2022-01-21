@@ -1,0 +1,59 @@
+@import 'colors';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  min-height: 25rem;
+}
+
+.level1 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  div:first-child {
+    align-items:center;
+    border: 15px solid transparent;
+    border-right: 25px solid $navFooterModal-background;
+    margin-right:20px;
+  }
+
+  div:last-child {
+    align-items:center;
+    border: 15px solid transparent;
+    border-left: 25px solid $navFooterModal-background;
+    margin-left:20px;
+  }
+}
+
+.level2 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  min-height: 14.375rem;
+}
+
+.item {
+  width: 12.5rem;
+  display: flex;
+  justify-content: center;
+  
+  img {
+    width: 6.25rem;
+    height: 6.25rem
+  }
+}
+
+.scale {
+  img {
+    width: 10rem;
+    height: 10rem;
+  }
+  p {
+    font-size: 1.5em;
+  }
+}

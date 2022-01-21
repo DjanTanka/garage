@@ -1,0 +1,44 @@
+@import 'colors';
+@import 'mixins';
+
+.conteiner {
+  width: 100vw;
+  height: 100vh;
+  border: solid red 1px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+    
+  .main {
+    width: 22rem;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%);
+    background-color: $navFooterModal-background;
+    border-radius: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2em 0;
+      
+      input {
+        @include button;
+        outline: none;
+      }
+    }
+
+    button {
+      @include button;
+      @include blackBackground;
+      margin-bottom: 2em;
+    }
+  }
+}

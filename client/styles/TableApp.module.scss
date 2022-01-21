@@ -1,0 +1,41 @@
+@import 'colors';
+
+.wholeTable{
+  border-radius: 1rem;
+  border-collapse: separate;
+  margin-bottom: 3rem;
+};
+
+.th {
+  background-color: $table-background;
+  height: 4rem;
+  width: 120px;
+}
+
+.thead {
+  border: 1px solid green;
+  border-radius: 1rem;
+  tr th:first-child {
+    border-radius: 20px 0 0 0;
+  }
+  tr th:last-child {
+    border-radius: 0 20px 0 0;
+  }
+}
+
+.tbody {
+  tr:last-child td:first-child {
+    border-radius: 0 0 0 20px;
+  }
+
+  tr:last-child td:last-child {
+    border-radius: 0 0 20px 0;
+  }
+}
+
+.td {
+  background-color: $table-background;
+  height: 3rem;
+  width: 12rem;
+  text-align: center;
+}
