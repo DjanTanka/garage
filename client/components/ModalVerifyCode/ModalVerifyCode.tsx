@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import styles from '../styles/Home.module.scss';
+import styles from './styles.module.scss';
 
 interface ModalVerifyCodeProps {
   email: string

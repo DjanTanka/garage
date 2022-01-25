@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import styles from '../styles/AuthorizationModal.module.scss'
+import styles from './styles.module.scss'
 import GoogleLogin from "react-google-login";
 import { useRouter } from 'next/dist/client/router';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../store/store';
-import { AuthModalProps } from '../store/interfaces';
+import { AppDispatch } from '../../store/store';
+import { AuthModalProps } from '../../store/interfaces';
 
 const AuthorizationModal = ({setIsAuthModalOpen, setAttantion, setinfoAttention}: AuthModalProps ) => {
 

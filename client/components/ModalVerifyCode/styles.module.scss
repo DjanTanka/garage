@@ -1,0 +1,19 @@
+.modalVerifyCode {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  top: 10px;
+  height: 30vh;
+  width: 50vw;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $navFooterModal-background;
+  border-radius: 1.25em  1.25em;
+
+  .text {
+    width: 80%;
+  }
+}

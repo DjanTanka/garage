@@ -1,4 +1,4 @@
-@import 'colors';
+@import "../../styles/colors";
 
 .list {
   display: flex;
@@ -9,27 +9,27 @@
   min-height: 25rem;
 }
 
-.level1 {
+.picture {
   display: flex;
   justify-content: center;
   align-items: flex-end;
 
   div:first-child {
-    align-items:center;
+    align-items: center;
     border: 15px solid transparent;
     border-right: 25px solid $navFooterModal-background;
-    margin-right:20px;
+    margin-right: 20px;
   }
 
   div:last-child {
-    align-items:center;
+    align-items: center;
     border: 15px solid transparent;
     border-left: 25px solid $navFooterModal-background;
-    margin-left:20px;
+    margin-left: 20px;
   }
 }
 
-.level2 {
+.description {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -41,10 +41,10 @@
   width: 12.5rem;
   display: flex;
   justify-content: center;
-  
+
   img {
     width: 6.25rem;
-    height: 6.25rem
+    height: 6.25rem;
   }
 }
 
@@ -55,5 +55,37 @@
   }
   p {
     font-size: 1.5em;
+  }
+}
+
+@media (max-width: 640px) {
+  .picture {
+    width: 600px;
+  }
+}
+
+@media (max-width: 320px) {
+  .picture {
+    width: 300px;
+  }
+
+  .picture  {
+    div:nth-child(2) {
+      display: none
+    }
+
+    div:nth-child(4) {
+      display: none
+    }
+  }
+
+  .description  {
+    div:first-child {
+      display: none
+    }
+
+    div:last-child {
+      display: none
+    }
   }
 }

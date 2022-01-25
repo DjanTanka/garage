@@ -1,8 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import { Dispatch, SetStateAction, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../store/store';
-import styles from '../styles/AuthorizationModal.module.scss'
+import { AppDispatch } from '../../store/store';
+import styles from '../AuthorizationModal/styles.module.scss'
 
 interface RegModalProps {
   setIsRegModalOpen: Dispatch<SetStateAction<boolean>>

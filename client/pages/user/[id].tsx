@@ -1,13 +1,13 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
 import styles from "../../styles/Home.module.scss";
-import ModalVerifyCode from "../../components/ModalVerifyCode";
+import ModalVerifyCode from "../../components/ModalVerifyCode/ModalVerifyCode";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import ModalAddCar from "../../components/ModalAddCar";
+import ModalAddCar from "../../components/ModalAddCar/ModalAddCar";
 import { selectUser } from "../../store/slices/user";
 import { selectCarsOfUsers } from "../../store/slices/cars";
-import TableApp from "../../components/TableApp";
+import TableApp from "../../components/TableApp/TableApp";
 import { Column } from "react-table";
 import { ICar } from "../../store/interfaces";
 //sas

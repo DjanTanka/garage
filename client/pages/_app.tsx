@@ -11,8 +11,8 @@ import '../styles/globals.scss';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-  // uri: 'http://localhost:5000/graphql',
-  uri: ' https://garage-project-server.herokuapp.com/graphql',
+  uri: 'http://localhost:8000/graphql',
+  // uri: ' https://garage-project-server.herokuapp.com/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
