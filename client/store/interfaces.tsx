@@ -83,7 +83,7 @@ export interface ICreateUserPayload {
     lastName: string
     email: string
     password: string
-    setAttantion: Dispatch<SetStateAction<boolean>>
+    setAttention: Dispatch<SetStateAction<boolean>>
     setinfoAttention: Dispatch<SetStateAction<string>>
   }
 }
@@ -92,7 +92,7 @@ export interface IActivateUserPayload {
   payload: {
     email: string,
     verifyCode: string
-    setAttantion: Dispatch<SetStateAction<boolean>>
+    setAttention: Dispatch<SetStateAction<boolean>>
     setinfoAttention: Dispatch<SetStateAction<string>>
   }
 }
@@ -114,11 +114,18 @@ export interface ITokens {
 export interface AuthModalProps {
   setIsAuthModalOpen: Dispatch<SetStateAction<boolean>>
   setinfoAttention:Dispatch<SetStateAction<string>>
-  setAttantion:Dispatch<SetStateAction<boolean>>
+  setAttention:Dispatch<SetStateAction<boolean>>
 }
 
 
 export interface TableAppProps extends Omit<UseTableOptions<ICar>, 'title'> {
   title: string
   data: ICar[]
+};
+
+export interface NavigationProps  {
+  isMenuOpen: boolean
+  handleRegistration?: () => void
+  handleAuthorization?: () => void
+  handleOpenMenu?: () => void
 };

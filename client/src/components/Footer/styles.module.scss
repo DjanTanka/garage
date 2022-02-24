@@ -1,0 +1,31 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
+
+.footer {
+  width: 100%;
+  height: 10vh;
+  min-height: 100px;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $navFooterModal-background;
+  color: rgba(0, 0, 0, 0.5);
+
+  .joinUs {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 50%;
+        filter: invert(0.4);
+      }
+    }
+  }
+}

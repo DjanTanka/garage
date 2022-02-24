@@ -3,10 +3,10 @@ import styles from './styles.module.scss'
 import GoogleLogin from "react-google-login";
 import { useRouter } from 'next/dist/client/router';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../store/store';
-import { AuthModalProps } from '../../store/interfaces';
+import { AppDispatch } from '../../../store/store';
+import { AuthModalProps } from '../../../store/interfaces';
 
-const AuthorizationModal = ({setIsAuthModalOpen, setAttantion, setinfoAttention}: AuthModalProps ) => {
+const AuthorizationModal = ({setIsAuthModalOpen, setAttention, setinfoAttention}: AuthModalProps ) => {
 
   const history = useRouter()
   const dispatch = useDispatch<AppDispatch>()
@@ -21,7 +21,7 @@ const AuthorizationModal = ({setIsAuthModalOpen, setAttantion, setinfoAttention}
         history, 
         email: response.profileObj.email, 
         password, 
-        setAttantion, 
+        setAttention, 
         setinfoAttention, 
         googleId: response.googleId
       }
@@ -54,7 +54,7 @@ const AuthorizationModal = ({setIsAuthModalOpen, setAttantion, setinfoAttention}
   }
 
   const handleAuthorization = () => {
-    dispatch({type: 'LOGIN_USER', payload: { history, email, password, setAttantion, setinfoAttention }})
+    dispatch({type: 'LOGIN_USER', payload: { history, email, password, setAttention, setinfoAttention }})
   }
 
   return (

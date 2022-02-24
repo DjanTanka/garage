@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { useTable,  } from 'react-table';
-import { TableAppProps } from '../../store/interfaces';
+import { TableAppProps } from '../../../store/interfaces';
 import styles from './styles.module.scss'
 
 const TableApp = ({title, columns, data }:  TableAppProps) => {

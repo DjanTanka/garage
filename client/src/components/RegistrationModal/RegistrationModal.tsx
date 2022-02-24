@@ -1,16 +1,16 @@
 import { useRouter } from 'next/dist/client/router';
 import { Dispatch, SetStateAction, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../store/store';
+import { AppDispatch } from '../../../store/store';
 import styles from '../AuthorizationModal/styles.module.scss'
 
 interface RegModalProps {
   setIsRegModalOpen: Dispatch<SetStateAction<boolean>>
   setinfoAttention:Dispatch<SetStateAction<string>>
-  setAttantion:Dispatch<SetStateAction<boolean>>
+  setAttention:Dispatch<SetStateAction<boolean>>
 }
 
-const RegistrationModal = ({setIsRegModalOpen, setinfoAttention, setAttantion }: RegModalProps ) => {
+const RegistrationModal = ({setIsRegModalOpen, setinfoAttention, setAttention }: RegModalProps ) => {
 
   const history = useRouter()
   const dispatch = useDispatch<AppDispatch>()
@@ -54,7 +54,7 @@ const RegistrationModal = ({setIsRegModalOpen, setinfoAttention, setAttantion }:
   }
 
   const handleRegister = () => {
-    dispatch({type: 'CREATE_USER', payload: { history, firstName, lastName, email, password, setinfoAttention, setAttantion }})
+    dispatch({type: 'CREATE_USER', payload: { history, firstName, lastName, email, password, setinfoAttention, setAttention }})
   }
 
   return (

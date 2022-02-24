@@ -1,0 +1,102 @@
+@import "../../styles/colors";
+@import "../../styles/mixins";
+
+.wrapper {
+  .main {
+    background-image: url(/parking.png);
+    background-size: cover;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .bunner {
+      position: relative;
+      display: block;
+      text-align: center;
+      justify-content: center;
+      width: 90%;
+
+      span {
+        color: white;
+        padding: 0.2em 0.5em;
+        line-height: 2em;
+        font-weight: 300;
+        background-color: black;
+        border-radius: 1.2em;
+        box-decoration-break: clone;
+        font-size: calc(24px + (36 - 12) * ( (100vw - 320px) / ( 1900 - 320) ));
+      }
+    }
+
+    .searchBlock {
+      display: flex;
+      justify-content: center;
+      width: 70%;
+      height: 20%;
+
+      .input {
+        font-size: 20px;
+        height: 100%;
+        width: 70%;
+        border-radius: 1.25em 0 0 1.25em;
+        border: none;
+        outline: none;
+        padding-left: 1em;
+      }
+
+      .buttonForSearch {
+        @include button;
+        @include blackBackground;
+        height: 100%;
+        border-radius: 0 1.25em 1.25em 0;
+        margin-left: 0;
+      }
+    }
+
+    input::placeholder {
+      color: $navFooterModal-background;
+      font-size: calc(12px + (18 - 12) * ( (100vw - 320px) / ( 1900 - 320)));
+    }
+  }
+
+  @media (max-width: 320px) {
+    wrapper {
+      .main {
+        margin-bottom: 200px;
+        .bunner {
+          width: 290px;
+          font-size: 24px;
+          position: relative;
+          top: 50px;
+          span {
+            padding: 0.2em 0.4em;
+          }
+        }
+        .searchBlock {
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          top: 110px;
+
+          .input {
+            font-size: 16px;
+            width: 17em;
+            border-radius: 1.25em;
+            margin-bottom: 20px;
+          }
+          .buttonForSearch {
+            height: 2.4em;
+            width: 8em;
+            border-radius: 1.25em;
+          }
+        }
+      }
+
+      .footer {
+        position: static;
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ import {
   createHttpLink
 } from "@apollo/client";
 import { store } from '../store/store';
-import '../styles/globals.scss'; 
+import '../src/styles/globals.scss'; 
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({

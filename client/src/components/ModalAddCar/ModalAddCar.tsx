@@ -1,8 +1,8 @@
 import { useRouter } from 'next/dist/client/router';
 import { Dispatch, SetStateAction, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../store/store';
-import styles from '../styles/AuthorizationModal.module.scss'
+import { AppDispatch } from '../../../store/store';
+import styles from '../AuthorizationModal/styles.module.scss'
 
 interface IModalAddCar {
   setModalAddCar: Dispatch<SetStateAction<boolean>>
@@ -21,6 +21,7 @@ const ModalAddCar = ({setModalAddCar, setAttantion, setinfoAttention  }: IModalA
   const [mileage, setMileage] = useState('');
 
   const handleCloseModal = (e: React.MouseEvent): void => {
+    setModalAddCar(false)
     e.stopPropagation()
   }
 

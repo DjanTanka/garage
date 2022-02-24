@@ -1,16 +1,16 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
-import styles from "../../styles/Home.module.scss";
-import ModalVerifyCode from "../../components/ModalVerifyCode/ModalVerifyCode";
+import styles from '../../pages/styles.module.scss'
+import ModalVerifyCode from "../../src/components/ModalVerifyCode/ModalVerifyCode";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import ModalAddCar from "../../components/ModalAddCar/ModalAddCar";
+import ModalAddCar from "../../src/components/ModalAddCar/ModalAddCar";
 import { selectUser } from "../../store/slices/user";
 import { selectCarsOfUsers } from "../../store/slices/cars";
-import TableApp from "../../components/TableApp/TableApp";
+import TableApp from "../../src/components/TableApp/TableApp";
 import { Column } from "react-table";
 import { ICar } from "../../store/interfaces";
-//sas
+
 const User: NextPage = () => {
   const history = useRouter();
   const router = useRouter();
@@ -77,7 +77,7 @@ const User: NextPage = () => {
       <div
         className={[
           styles.container,
-          `${!isActivated && user.userData._id && styles.opacity}`,
+          `${!isActivated && user.userData._id ?  styles.opacity : ''}`,
         ].join(" ")}
       >
         <div className={styles.nav}>
