@@ -15,9 +15,9 @@ function* deleteCarWorker(payload: any) {
   })
   yield put(addCarsOfUser(cars))  
   } catch (err: any) {
-    console.log('---err', err)
+    console.log('---err', err);
     // setinfoAttention(err.message);
-    // setAttantion(true)
+    // setAttention(true)
   }
 }
 

@@ -1,15 +1,16 @@
 import React from "react";
+import { FooterStyleProps } from "../../../store/interfaces";
 import {joinUs} from "../../constants";
 import styles from "./styles.module.scss";
 
-const Footer = () => {
+const Footer = ({style}: FooterStyleProps) => {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} style={style}>
       Join us:
       <div className={styles.joinUs}>
         {joinUs.map((item) => {
           return (
-            <a href={item.link}>
+            <a key={item.title}href={item.link}>
               <img src={item.src} alt={item.title}/>
             </a>
           );

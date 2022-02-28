@@ -16,7 +16,7 @@ class MailService {
   async sendActivationMail(to, activationCode) {
     try {
       await this.transporter.sendMail({
-        from: 'testsendvolyntseva@gmail.com',
+        from: "testsendvolyntseva@gmail.com",
         to,
         subject: "Активация аккаунта на" + process.env.API_URL,
         text: "",
@@ -27,8 +27,8 @@ class MailService {
               </div>
               `,
       });
-    } catch(e) {
-      console.log(e)
+    } catch (e) {
+      console.log(e);
     }
   }
 }

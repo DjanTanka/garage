@@ -8,7 +8,7 @@ function* createUserWatcher() {
 }
 
 function* createUserWorker(payload: ICreateUserPayload) {
-  const { payload: {history, setinfoAttention, setAttantion, ...userInput} } = payload
+  const { payload: {history, setinfoAttention, setAttention, ...userInput} } = payload
   try {
     const user: IUser = yield createUser({
     userInput
@@ -18,7 +18,7 @@ function* createUserWorker(payload: ICreateUserPayload) {
   yield history.push(url)
   } catch (err: any) {
     setinfoAttention(err.message);
-    setAttantion(true)
+    setAttention(true)
   }
 }
 

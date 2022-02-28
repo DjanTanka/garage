@@ -6,11 +6,11 @@ import styles from '../AuthorizationModal/styles.module.scss'
 
 interface IModalAddCar {
   setModalAddCar: Dispatch<SetStateAction<boolean>>
-  setAttantion: Dispatch<SetStateAction<boolean>>
+  setAttention: Dispatch<SetStateAction<boolean>>
   setinfoAttention: Dispatch<SetStateAction<string>>
 }
 
-const ModalAddCar = ({setModalAddCar, setAttantion, setinfoAttention  }: IModalAddCar) => {
+const ModalAddCar = ({setModalAddCar, setAttention, setinfoAttention  }: IModalAddCar) => {
 
   const router = useRouter()
   const dispatch = useDispatch<AppDispatch>()
@@ -61,7 +61,7 @@ const ModalAddCar = ({setModalAddCar, setAttantion, setinfoAttention  }: IModalA
       mileage, 
       userId: router.query.id, 
       setModalAddCar,
-      setAttantion,
+      setAttention,
       setinfoAttention,
     }})
   }

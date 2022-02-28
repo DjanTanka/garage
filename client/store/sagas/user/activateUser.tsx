@@ -8,7 +8,7 @@ function* activateUserWatcher() {
 }
 
 function* activateUserWorker(payload: IActivateUserPayload) {
-  const { payload: { email, verifyCode, setinfoAttention, setAttantion } } = payload
+  const { payload: { email, verifyCode, setinfoAttention, setAttention } } = payload
   try {
     const activatedUser: IUser = yield activateUser({
       userActivateInput: {
@@ -19,7 +19,7 @@ function* activateUserWorker(payload: IActivateUserPayload) {
     yield put(addUserToState(activatedUser))
   } catch (err: any) {
     setinfoAttention(err.message);
-    setAttantion(true)
+    setAttention(true)
   }
 }
 

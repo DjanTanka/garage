@@ -10,7 +10,7 @@ function* addCarWatcher() {
 function* addCarWorker(payload: any) {
   const { payload: { 
     setModalAddCar,
-    setAttantion,
+    setAttention,
     setinfoAttention,
     ...carInput}
   } = payload
@@ -23,7 +23,7 @@ function* addCarWorker(payload: any) {
   } catch (err: any) {
     console.log('---err', err)
     setinfoAttention(err.message);
-    setAttantion(true)
+    setAttention(true)
   }
 }
 

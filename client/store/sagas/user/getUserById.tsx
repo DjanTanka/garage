@@ -10,12 +10,16 @@ function* getUserByWatcher() {
 }
 
 function* getUserByIdWorker(payload: IgetUserByIDPayload) {
-  const { payload: {id} } = payload
+  const { payload: {id, isUserActivated} } = payload
   const userByID: IUserById = yield getUserById(id);
   yield put(userLoading())
   yield put(addUserToState(userByID.getUserById));
-  const carsOfUserById: ICar[] = yield cars(id);
-   yield put(addCarsOfUser(carsOfUserById))
+
+  if(isUserActivated) {
+    const carsOfUserById: ICar[] = yield cars(id);
+    console.log('---carsOfUserById', carsOfUserById)
+    yield put(addCarsOfUser(carsOfUserById))
+  }
 };
 
 export default getUserByWatcher

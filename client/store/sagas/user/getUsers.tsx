@@ -8,15 +8,15 @@ function* getUsersWatcher() {
 }
 
 function* getUsersWorker(payload: ICreateUserPayload) {
-  const {payload: {setAttantion, setinfoAttention}} = payload
+  const {payload: {setAttention, setinfoAttention}} = payload
   try {
     const users: IUsers = yield getAllUsers();
     yield put(getAllUsersData(users.getAllUsersForChecking));
     yield setinfoAttention('');
-    yield setAttantion(false)
+    yield setAttention(false)
   } catch (err: any) {
     setinfoAttention(err.message);
-    setAttantion(true)
+    setAttention(true)
   }
 }
 

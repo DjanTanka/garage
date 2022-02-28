@@ -8,20 +8,21 @@ function* loginUserWatcher() {
 }
 
 function* loginUserWorker(payload: ICreateUserPayload) {
-  const { payload: {history, setinfoAttention, setAttantion, ...userLoginInput} } = payload
+  const { payload: {history, setinfoAttention, setAttention, ...userLoginInput} } = payload
   try {
     const tokens: ITokens = yield loginUser({
      userLoginInput
     })
-  yield localStorage.setItem('usersTokenAGarage', tokens.login.tokenA)
-  yield localStorage.setItem('usersTokenRGarage', tokens.login.tokenR)
-  yield put(addUserToState(tokens.login.user))  
-  const url = `/user/${tokens.login.user._id}`
+    console.log('---tokens', tokens)
+    yield localStorage.setItem('usersTokenAGarage', tokens.login.tokenA)
+    yield localStorage.setItem('usersTokenRGarage', tokens.login.tokenR)
+    yield put(addUserToState(tokens.login.user))  
+    const url = `/user/${tokens.login.user._id}`
   yield history.push(url)
 
   } catch(err: any) {
     setinfoAttention(err.message);
-    setAttantion(true)
+    setAttention(true)
   }
 }
 

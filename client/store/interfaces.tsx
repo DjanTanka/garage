@@ -100,6 +100,7 @@ export interface IgetUserByIDPayload {
   type: string
   payload: {
     id: string
+    isUserActivated: boolean
   }
 }
 
@@ -129,3 +130,10 @@ export interface NavigationProps  {
   handleAuthorization?: () => void
   handleOpenMenu?: () => void
 };
+
+export interface FooterStyleProps {
+  style?: {
+    position?: 'absolute' | 'static' ,
+    bottom?: '0px'
+  }
+}

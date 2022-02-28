@@ -8,6 +8,7 @@ const graphQlResolvers = require("./graphql/resolvers/index");
 const isAuth = require("./middleware/is-auth");
 const thisUser = require("./middleware/is-auth");
 const cors = require("cors");
+const colors = require('colors')
 
 const app = express();
 
@@ -31,7 +32,7 @@ const PORT = process.env.PORT || 8000
       { useNewUrlParser: true, useUnifiedTopology: true }
       )
       .then(() => {
-        console.log(`mongo connect..`);
+        console.log(`mongo connected....`.yellow.italic);
       })
       .catch((err) => {
         console.log('err at app server', err);
@@ -41,5 +42,5 @@ const PORT = process.env.PORT || 8000
       if(err){
         console.log('---err', err)
       }
-      console.log(`Server has been started on port ${PORT}...`);});
+      console.log(`Server has been started on port ${PORT}....`.yellow.bold);});
     
