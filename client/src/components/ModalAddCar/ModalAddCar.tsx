@@ -13,10 +13,10 @@ const ModalAddCar: FC<IModalAddCar> = ({
   const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
 
-  const [registrationNumber, setRegistrationNumber] = useState("");
-  const [model, setModel] = useState("");
-  const [carDate, setCarDate] = useState("");
-  const [mileage, setMileage] = useState("");
+  const [registrationNumber, setRegistrationNumber] = useState<string>("");
+  const [model, setModel] = useState<string>("");
+  const [carDate, setCarDate] = useState<string>("");
+  const [mileage, setMileage] = useState<string>("");
 
   const handleCloseModal = (e: React.MouseEvent): void => {
     setModalAddCar(false);

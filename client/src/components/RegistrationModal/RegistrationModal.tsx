@@ -13,10 +13,10 @@ const RegistrationModal: FC<RegModalProps> = ({
   const history = useRouter();
   const dispatch = useDispatch<AppDispatch>();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleCloseModal = (e: React.MouseEvent): void => {
     setIsRegModalOpen(false);

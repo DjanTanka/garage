@@ -17,9 +17,9 @@ const User: NextPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const [attention, setAttention] = useState(false);
-  const [modalAddCar, setModalAddCar] = useState(false);
-  const [infoAttention, setinfoAttention] = useState("");
+  const [attention, setAttention] = useState<boolean>(false);
+  const [modalAddCar, setModalAddCar] = useState<boolean>(false);
+  const [infoAttention, setinfoAttention] = useState<string>("");
 
   const user = useSelector(selectUser);
   const carsOfUser = useSelector(selectCarsOfUsers);

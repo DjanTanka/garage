@@ -10,7 +10,7 @@ const ModalVerifyCode: FC<ModalVerifyCodeProps> = ({
   setinfoAttention,
 }) => {
   const dispatch = useDispatch();
-  const [verifyCode, setVerifyCode] = useState("");
+  const [verifyCode, setVerifyCode] = useState<string>("");
 
   const handleVerifyCode = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setVerifyCode(e.target.value);

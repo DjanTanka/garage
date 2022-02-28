@@ -1,6 +1,6 @@
 export const menu = ["About us", "Parking", "For users"];
 
-export const сarousel = [
+export const сarousel: import("../store/interfaces").Icarousel[] = [
   {
     title: "convenient parking location",
     picture: "/converoment.png",

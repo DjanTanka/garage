@@ -9,11 +9,11 @@ import BunnerAndSearch from "../src/components/BunnerAndSearch/BunnerAndSearch";
 import Footer from "../src/components/Footer/Footer";
 
 const Home: NextPage = () => {
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [isRegModalOpen, setIsRegModalOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [attention, setAttention] = useState(false);
-  const [infoAttention, setinfoAttention] = useState("");
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
+  const [isRegModalOpen, setIsRegModalOpen] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [attention, setAttention] = useState<boolean>(false);
+  const [infoAttention, setinfoAttention] = useState<string>("");
 
   const handleOpenMenu = () => {
     setIsMenuOpen((prev) => !prev);

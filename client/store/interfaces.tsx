@@ -155,3 +155,9 @@ export interface FooterStyleProps {
     bottom?: '0px'
   }
 }
+
+export interface Icarousel {
+  title: string,
+  picture: string,
+  order: number,
+}

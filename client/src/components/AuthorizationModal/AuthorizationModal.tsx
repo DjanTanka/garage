@@ -11,8 +11,8 @@ const AuthorizationModal: FC<AuthModalProps> = ({setIsAuthModalOpen, setAttentio
   const history = useRouter()
   const dispatch = useDispatch<AppDispatch>()
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const responseGoogle = (response: any) => {
     dispatch({

@@ -1,9 +1,10 @@
 import {FC, useState} from "react";
+import { Icarousel } from "../../../store/interfaces";
 import {сarousel} from "../../constants";
 import styles from "./styles.module.scss";
 
 const Carousel: FC = () => {
-  const [carousel, setCarousel] = useState(сarousel);
+  const [carousel, setCarousel] = useState<Icarousel[]>(сarousel);
 
   const handleChangeOrder = (type: string) => {
     if (type === "asc") {

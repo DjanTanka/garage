@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 
 const useIsButtonPressed = (arr) => {
-  const [flag, setFlag] = useState(false);
-  const [keysPressed, setKeysPressed] = useState([]);
-
+  const [flag, setFlag] = useState<boolean>(false);
+  
   const addFunc = (key) => {
     arr.forEach((item) => {
       if (key === item) {
