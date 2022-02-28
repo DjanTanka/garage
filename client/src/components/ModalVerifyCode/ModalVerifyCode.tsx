@@ -1,18 +1,14 @@
-import {Dispatch, SetStateAction, useState} from "react";
+import {FC, useState} from "react";
 import {useDispatch} from "react-redux";
+import {ModalVerifyCodeProps} from "../../../store/interfaces";
 import styles from "./styles.module.scss";
 
-interface ModalVerifyCodeProps {
-  email: string;
-  setinfoAttention: Dispatch<SetStateAction<string>>;
-  setAttention: Dispatch<SetStateAction<boolean>>;
-}
 
-const ModalVerifyCode = ({
+const ModalVerifyCode: FC<ModalVerifyCodeProps> = ({
   email,
   setAttention,
   setinfoAttention,
-}: ModalVerifyCodeProps) => {
+}) => {
   const dispatch = useDispatch();
   const [verifyCode, setVerifyCode] = useState("");
 

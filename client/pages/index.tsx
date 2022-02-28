@@ -3,9 +3,6 @@ import AuthorizationModal from "../src/components/AuthorizationModal/Authorizati
 import RegistrationModal from "../src/components/RegistrationModal/RegistrationModal";
 import styles from "./styles.module.scss";
 import type {NextPage} from "next";
-import {useSelector} from "react-redux";
-import {IState} from "../store/interfaces";
-import IUserDto from "../store/interfaces";
 import Carousel from "../src/components/Сarousel/Сarousel";
 import Navigation from "../src/components/Navigation/Navigation";
 import BunnerAndSearch from "../src/components/BunnerAndSearch/BunnerAndSearch";
@@ -17,8 +14,6 @@ const Home: NextPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [attention, setAttention] = useState(false);
   const [infoAttention, setinfoAttention] = useState("");
-
-  const users: IUserDto[] = useSelector((state: IState) => state.users);
 
   const handleOpenMenu = () => {
     setIsMenuOpen((prev) => !prev);

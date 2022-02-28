@@ -1,14 +1,14 @@
-import React from "react";
+import React, {FC} from "react";
 import {NavigationProps} from "../../../store/interfaces";
 import styles from "./styles.module.scss";
 import {menu} from "../../constants";
 
-const Navigation = ({
+const Navigation: FC<NavigationProps> = ({
   isMenuOpen,
   handleRegistration,
   handleAuthorization,
   handleOpenMenu,
-}: NavigationProps) => {
+}) => {
   return (
     <div className={styles.wrapper}>
       <nav className={styles.nav}>

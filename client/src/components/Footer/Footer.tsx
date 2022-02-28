@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import { FooterStyleProps } from "../../../store/interfaces";
 import {joinUs} from "../../constants";
 import styles from "./styles.module.scss";
 
-const Footer = ({style}: FooterStyleProps) => {
+const Footer: FC<FooterStyleProps> = ({style}) => {
   return (
     <footer className={styles.footer} style={style}>
       Join us:

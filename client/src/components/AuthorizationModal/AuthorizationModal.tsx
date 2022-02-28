@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import styles from './styles.module.scss'
 import GoogleLogin from "react-google-login";
 import { useRouter } from 'next/dist/client/router';
@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../../store/store';
 import { AuthModalProps } from '../../../store/interfaces';
 
-const AuthorizationModal = ({setIsAuthModalOpen, setAttention, setinfoAttention}: AuthModalProps ) => {
+const AuthorizationModal: FC<AuthModalProps> = ({setIsAuthModalOpen, setAttention, setinfoAttention}) => {
 
   const history = useRouter()
   const dispatch = useDispatch<AppDispatch>()

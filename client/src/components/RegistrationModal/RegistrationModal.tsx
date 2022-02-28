@@ -1,103 +1,127 @@
-import { useRouter } from 'next/dist/client/router';
-import { Dispatch, SetStateAction, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../../store/store';
-import styles from '../AuthorizationModal/styles.module.scss'
+import {useRouter} from "next/dist/client/router";
+import {FC, useState} from "react";
+import {useDispatch} from "react-redux";
+import {RegModalProps} from "../../../store/interfaces";
+import {AppDispatch} from "../../../store/store";
+import styles from "../AuthorizationModal/styles.module.scss";
 
-interface RegModalProps {
-  setIsRegModalOpen: Dispatch<SetStateAction<boolean>>
-  setinfoAttention:Dispatch<SetStateAction<string>>
-  setAttention:Dispatch<SetStateAction<boolean>>
-}
+const RegistrationModal: FC<RegModalProps> = ({
+  setIsRegModalOpen,
+  setinfoAttention,
+  setAttention,
+}) => {
+  const history = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
 
-const RegistrationModal = ({setIsRegModalOpen, setinfoAttention, setAttention }: RegModalProps ) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const history = useRouter()
-  const dispatch = useDispatch<AppDispatch>()
-
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleCloseModal = (e: React.MouseEvent): void=> {
+  const handleCloseModal = (e: React.MouseEvent): void => {
     setIsRegModalOpen(false);
-    e.stopPropagation()
-  }
+    e.stopPropagation();
+  };
 
-  const handleModalClick = (e:React.MouseEvent): void => {
-    e.stopPropagation()
-  }
+  const handleModalClick = (e: React.MouseEvent): void => {
+    e.stopPropagation();
+  };
 
-  const handleChangeUserData = (e:React.ChangeEvent<HTMLInputElement>, type: string): void => {
+  const handleChangeUserData = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    type: string
+  ): void => {
     switch (type) {
-      case 'name':
-        setFirstName(e.target.value)
-        e.stopPropagation()
-      break;
+      case "name":
+        setFirstName(e.target.value);
+        e.stopPropagation();
+        break;
 
-      case 'lastName':
-        setLastName(e.currentTarget.value)
-      break;
+      case "lastName":
+        setLastName(e.currentTarget.value);
+        break;
 
-      case 'email':
-        setEmail(e.currentTarget.value)
-      break;
+      case "email":
+        setEmail(e.currentTarget.value);
+        break;
 
-      case 'password':
-        setPassword(e.currentTarget.value)
-      break;
-    
+      case "password":
+        setPassword(e.currentTarget.value);
+        break;
+
       default:
-      break;
+        break;
     }
-  }
+  };
 
   const handleRegister = () => {
-    dispatch({type: 'CREATE_USER', payload: { history, firstName, lastName, email, password, setinfoAttention, setAttention }})
-  }
+    dispatch({
+      type: "CREATE_USER",
+      payload: {
+        history,
+        firstName,
+        lastName,
+        email,
+        password,
+        setinfoAttention,
+        setAttention,
+      },
+    });
+  };
 
   return (
     <div className={styles.conteiner} onClick={(e) => handleCloseModal(e)}>
       <div className={styles.main} onClick={(e) => handleModalClick(e)}>
-      <h2>Registration</h2>
-      Personal Information
+        <h2>Registration</h2>
+        Personal Information
         <form>
           <div>
             <label>
               Name*:
-              <input value={firstName} onChange={(e)=>handleChangeUserData(e, 'name')}/>
+              <input
+                value={firstName}
+                onChange={(e) => handleChangeUserData(e, "name")}
+              />
             </label>
           </div>
           <div>
             <label>
               Surname:
-              <input value={lastName} onChange={(e)=>handleChangeUserData(e, 'lastName')}/>
+              <input
+                value={lastName}
+                onChange={(e) => handleChangeUserData(e, "lastName")}
+              />
             </label>
           </div>
           <div>
             <label>
               E-mail*:
-              <input value={email} onChange={(e)=>handleChangeUserData(e, 'email')}/>
+              <input
+                value={email}
+                onChange={(e) => handleChangeUserData(e, "email")}
+              />
             </label>
           </div>
           <div>
             <label>
               Password:
-              <input value={password} onChange={(e)=>handleChangeUserData(e, 'password')} />
+              <input
+                value={password}
+                onChange={(e) => handleChangeUserData(e, "password")}
+              />
             </label>
           </div>
-          <div> 
+          <div>
             <label>
               Repeat password:
-              <input/>
+              <input />
             </label>
           </div>
         </form>
         <button onClick={handleRegister}>Register</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RegistrationModal
+export default RegistrationModal;

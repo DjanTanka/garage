@@ -118,6 +118,24 @@ export interface AuthModalProps {
   setAttention:Dispatch<SetStateAction<boolean>>
 }
 
+export interface IModalAddCar {
+  setModalAddCar: Dispatch<SetStateAction<boolean>>
+  setAttention: Dispatch<SetStateAction<boolean>>
+  setinfoAttention: Dispatch<SetStateAction<string>>
+}
+
+export interface ModalVerifyCodeProps {
+  email: string;
+  setinfoAttention: Dispatch<SetStateAction<string>>;
+  setAttention: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface RegModalProps {
+  setIsRegModalOpen: Dispatch<SetStateAction<boolean>>
+  setinfoAttention:Dispatch<SetStateAction<string>>
+  setAttention:Dispatch<SetStateAction<boolean>>
+}
+
 
 export interface TableAppProps extends Omit<UseTableOptions<ICar>, 'title'> {
   title: string

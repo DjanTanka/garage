@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import styles from './styles.module.scss'
 
-const BunnerAndSearch = () => {
+const BunnerAndSearch: FC = () => {
 
   return (
     <div className={styles.wrapper}>

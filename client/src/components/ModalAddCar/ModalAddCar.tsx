@@ -1,106 +1,123 @@
-import { useRouter } from 'next/dist/client/router';
-import { Dispatch, SetStateAction, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../../store/store';
-import styles from '../AuthorizationModal/styles.module.scss'
+import {useRouter} from "next/dist/client/router";
+import {FC, useState} from "react";
+import {useDispatch} from "react-redux";
+import {IModalAddCar} from "../../../store/interfaces";
+import {AppDispatch} from "../../../store/store";
+import styles from "../AuthorizationModal/styles.module.scss";
 
-interface IModalAddCar {
-  setModalAddCar: Dispatch<SetStateAction<boolean>>
-  setAttention: Dispatch<SetStateAction<boolean>>
-  setinfoAttention: Dispatch<SetStateAction<string>>
-}
+const ModalAddCar: FC<IModalAddCar> = ({
+  setModalAddCar,
+  setAttention,
+  setinfoAttention,
+}) => {
+  const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
 
-const ModalAddCar = ({setModalAddCar, setAttention, setinfoAttention  }: IModalAddCar) => {
-
-  const router = useRouter()
-  const dispatch = useDispatch<AppDispatch>()
-
-  const [registrationNumber, setRegistrationNumber] = useState('');
-  const [model, setModel] = useState('');
-  const [carDate, setCarDate] = useState('');
-  const [mileage, setMileage] = useState('');
+  const [registrationNumber, setRegistrationNumber] = useState("");
+  const [model, setModel] = useState("");
+  const [carDate, setCarDate] = useState("");
+  const [mileage, setMileage] = useState("");
 
   const handleCloseModal = (e: React.MouseEvent): void => {
-    setModalAddCar(false)
-    e.stopPropagation()
-  }
+    setModalAddCar(false);
+    e.stopPropagation();
+  };
 
-  const handleModalClick = (e:React.MouseEvent): void => {
-    e.stopPropagation()
-  }
+  const handleModalClick = (e: React.MouseEvent): void => {
+    e.stopPropagation();
+  };
 
-  const handleChangeUserData = (e:React.ChangeEvent<HTMLInputElement>, type: string): void => {
+  const handleChangeUserData = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    type: string
+  ): void => {
     switch (type) {
-      case 'registrationNumber':
-        setRegistrationNumber(e.target.value)
-        e.stopPropagation()
-      break;
+      case "registrationNumber":
+        setRegistrationNumber(e.target.value);
+        e.stopPropagation();
+        break;
 
-      case 'model':
-        setModel(e.currentTarget.value)
-      break;
+      case "model":
+        setModel(e.currentTarget.value);
+        break;
 
-      case 'carDate':
-        setCarDate(e.currentTarget.value)
-      break;
+      case "carDate":
+        setCarDate(e.currentTarget.value);
+        break;
 
-      case 'mileage':
-        setMileage(e.currentTarget.value)
-      break;
-    
+      case "mileage":
+        setMileage(e.currentTarget.value);
+        break;
+
       default:
-      break;
+        break;
     }
-  }
+  };
 
   const handleRegister = () => {
-    dispatch({type: 'ADD_CAR', payload: { 
-      registrationNumber, 
-      model, 
-      carDate, 
-      mileage, 
-      userId: router.query.id, 
-      setModalAddCar,
-      setAttention,
-      setinfoAttention,
-    }})
-  }
+    dispatch({
+      type: "ADD_CAR",
+      payload: {
+        registrationNumber,
+        model,
+        carDate,
+        mileage,
+        userId: router.query.id,
+        setModalAddCar,
+        setAttention,
+        setinfoAttention,
+      },
+    });
+  };
 
   return (
     <div className={styles.conteiner} onClick={(e) => handleCloseModal(e)}>
       <div className={styles.main} onClick={(e) => handleModalClick(e)}>
-      <h2>Car Info</h2>
-      Put info about your car
+        <h2>Car Info</h2>
+        Put info about your car
         <form>
           <div>
             <label>
               Car Number*:
-              <input value={registrationNumber} onChange={(e)=>handleChangeUserData(e, 'registrationNumber')}/>
+              <input
+                value={registrationNumber}
+                onChange={(e) => handleChangeUserData(e, "registrationNumber")}
+              />
             </label>
           </div>
           <div>
             <label>
-            Сar model:
-              <input value={model} onChange={(e)=>handleChangeUserData(e, 'model')}/>
+              Сar model:
+              <input
+                value={model}
+                onChange={(e) => handleChangeUserData(e, "model")}
+              />
             </label>
           </div>
           <div>
             <label>
-            Сar release date:
-              <input type='date' value={carDate} onChange={(e)=>handleChangeUserData(e, 'carDate')}/>
+              Сar release date:
+              <input
+                type="date"
+                value={carDate}
+                onChange={(e) => handleChangeUserData(e, "carDate")}
+              />
             </label>
           </div>
           <div>
             <label>
-            Сar mileage:
-              <input value={mileage} onChange={(e)=>handleChangeUserData(e, 'mileage')} />
+              Сar mileage:
+              <input
+                value={mileage}
+                onChange={(e) => handleChangeUserData(e, "mileage")}
+              />
             </label>
           </div>
         </form>
         <button onClick={() => handleRegister()}>Add Car</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ModalAddCar
+export default ModalAddCar;

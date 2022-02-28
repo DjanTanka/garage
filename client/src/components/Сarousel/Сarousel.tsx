@@ -1,8 +1,8 @@
-import {useState} from "react";
+import {FC, useState} from "react";
 import {сarousel} from "../../constants";
 import styles from "./styles.module.scss";
 
-const Carousel = () => {
+const Carousel: FC = () => {
   const [carousel, setCarousel] = useState(сarousel);
 
   const handleChangeOrder = (type: string) => {
