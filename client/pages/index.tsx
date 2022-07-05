@@ -1,12 +1,12 @@
 import {useState} from "react";
-import AuthorizationModal from "../src/components/AuthorizationModal/AuthorizationModal";
-import RegistrationModal from "../src/components/RegistrationModal/RegistrationModal";
+import AuthorizationModal from "../src/components/AuthorizationModal";
+import RegistrationModal from "../src/components/RegistrationModal";
 import styles from "./styles.module.scss";
 import type {NextPage} from "next";
-import Carousel from "../src/components/Сarousel/Сarousel";
-import Navigation from "../src/components/Navigation/Navigation";
-import BunnerAndSearch from "../src/components/BunnerAndSearch/BunnerAndSearch";
-import Footer from "../src/components/Footer/Footer";
+import Carousel from "../src/components/Сarousel";
+import Navigation from "../src/components/Navigation";
+import BunnerAndSearch from "../src/components/BunnerAndSearch";
+import Footer from "../src/components/Footer";
 
 const Home: NextPage = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
