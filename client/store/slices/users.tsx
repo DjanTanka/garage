@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import IUser from '../interfaces';
+import IUser from '../../src/interfaces';
 
 const initialState: IUser[] = [];
 
@@ -8,13 +8,12 @@ export const allUsersSlice = createSlice({
   initialState,
   reducers: {
     getAllUsersData: (state, action: PayloadAction<IUser[]>) => {
-      
       state.length = 0;
-      state.push(...action.payload)
+      state.push(...action.payload);
     },
   },
-})
+});
 
-export const { getAllUsersData } = allUsersSlice.actions
+export const { getAllUsersData } = allUsersSlice.actions;
 
-export default allUsersSlice.reducer
+export default allUsersSlice.reducer;

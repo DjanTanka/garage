@@ -11,11 +11,11 @@ function* createUserWorker(payload: ICreateUserPayload) {
   const { payload: {history, setinfoAttention, setAttention, ...userInput} } = payload
   try {
     const user: IUser = yield createUser({
-    userInput
-  })
-  yield put(addUserToState(user))  
-  const url = `/user/${user._id}`
-  yield history.push(url)
+      userInput
+    })
+    yield put(addUserToState(user))  
+    const url = `/user/${user._id}`
+    yield history.push(url)
   } catch (err: any) {
     setinfoAttention(err.message);
     setAttention(true)

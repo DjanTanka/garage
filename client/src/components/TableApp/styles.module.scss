@@ -10,6 +10,20 @@
   background-color: $table-background;
   height: 4rem;
   width: 120px;
+
+  .inner {
+      display: flex;
+      justify-content: space-around;
+      
+      .arrowDown::after {
+        border: 1px solid black;
+        content: '';
+        position: relative;
+        top: 15px; 
+        border: 7px solid transparent;
+        border-top: 7px solid black;
+      }
+    }
 }
 
 .thead {

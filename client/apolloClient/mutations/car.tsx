@@ -22,7 +22,7 @@ export async function createCar(input: any ) {
   return data.createCar 
 }
 
-export async function deleteCar(input: any ) {
+export async function deleteCar(input: number | string ) {
   const { data } = await client.mutate({
     mutation: gql`
       mutation deleteCar ($id: ID!) {

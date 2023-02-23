@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IGarage } from '../interfaces';
+import { IGarage } from '../../src/interfaces';
 
-const initialState: IGarage[] = []
+const initialState: IGarage[] = [];
 
 export const garagesSlice = createSlice({
   name: 'garages',
   initialState,
   reducers: {
     addGarages: (state, action: PayloadAction<IGarage>) => {
-     state.push(action.payload)
-    }
+      state.push(action.payload);
+    },
   },
-})
+});
 
-export const { addGarages } = garagesSlice.actions
+export const { addGarages } = garagesSlice.actions;
 
-export default garagesSlice.reducer
+export default garagesSlice.reducer;

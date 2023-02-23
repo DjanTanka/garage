@@ -1,9 +1,9 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import { getUserById } from '../../../apolloClient/queries/user';
 import { cars } from '../../../apolloClient/queries/cars'
-import { ICar, IgetUserByIDPayload, IUserById } from '../../interfaces';
+import { TCar, IgetUserByIDPayload, IUserById } from '../../interfaces';
 import { addUserToState, userLoading } from '../../slices/user';
-import { addCarsOfUser } from '../../slices/cars';
+import { addCarsOfUser, isCarsLoading } from '../../slices/cars';
 
 function* getUserByWatcher() {
   yield takeLatest('GET_USER_AND_CARS_BY_ID', getUserByIdWorker)
@@ -16,8 +16,8 @@ function* getUserByIdWorker(payload: IgetUserByIDPayload) {
   yield put(addUserToState(userByID.getUserById));
 
   if(isUserActivated) {
-    const carsOfUserById: ICar[] = yield cars(id);
-    console.log('---carsOfUserById', carsOfUserById)
+    const carsOfUserById: TCar[] = yield cars(id);
+    yield put(isCarsLoading())
     yield put(addCarsOfUser(carsOfUserById))
   }
 };

@@ -1,19 +1,17 @@
 import type {NextPage} from "next";
 import {useRouter} from "next/dist/client/router";
 import styles from "../../pages/styles.module.scss";
-import ModalVerifyCode from "../../src/components/ModalVerifyCode/ModalVerifyCode";
+import ModalVerifyCode from "../../src/components/ModalVerifyCode";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import ModalAddCar from "../../src/components/ModalAddCar/ModalAddCar";
 import {selectUser} from "../../store/slices/user";
-import {selectCarsOfUsers} from "../../store/slices/cars";
-import TableApp from "../../src/components/TableApp/TableApp";
-import {Column} from "react-table";
-import {ICar} from "../../store/interfaces";
-import Footer from "../../src/components/Footer/Footer";
+import {selectCarsOfUser} from "../../store/slices/cars";
+import TableApp from "../../src/components/TableApp";
+import Footer from "../../src/components/Footer";
+import Navigation from '../../src/components/Navigation';
 
 const User: NextPage = () => {
-  const history = useRouter();
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -22,12 +20,8 @@ const User: NextPage = () => {
   const [infoAttention, setinfoAttention] = useState<string>("");
 
   const user = useSelector(selectUser);
-  const carsOfUser = useSelector(selectCarsOfUsers);
-  const {isActivated, email, firstName, lastName} = user.userData;
-
-  const handleLogOut = () => {
-    dispatch({type: "LOGOUT_USER", payload: {history}});
-  };
+  const carsOfUser = useSelector(selectCarsOfUser);
+  const {isActivated, email} = user.userData;
 
   const handleCloseAttention = (e: React.MouseEvent): void => {
     setinfoAttention("");
@@ -52,61 +46,16 @@ const User: NextPage = () => {
     }
   }, [router.query.id]);
 
-  const columns: Column<ICar>[] = [
-    {
-      Header: "Model",
-      accessor: "model", // accessor is the "key" in the data
-    },
-    {
-      Header: "Number car",
-      accessor: "registrationNumber",
-    },
-    {
-      Header: "VehicalWeare",
-      accessor: "vehicalWeare",
-    },
-    {
-      Header: "Delete",
-      accessor: "del",
-    },
-  ];
-
   return (
     <div
       style={{display: "flex", alignItems: "center", flexDirection: "column", height: '100vh'}}
     >
-      <div
-        className={[
-          styles.container,
-          `${!isActivated && user.userData._id ? styles.opacity : ""}`,
-        ].join(" ")}
-      >
-        <div className={styles.nav}>
-          <img src="/logo.png" alt="logo" className={styles.mylogo} />
-          <div className={styles.infoUser}>
-            <div>
-              {firstName}
-              <br />
-              {lastName}
-            </div>
-            <img className={styles.avatarImg} src={"/avatar.png"} />
-            <button
-              disabled={
-                !isActivated && user.status != "loading..." ? true : false
-              }
-              onClick={handleLogOut}
-            >
-              {" "}
-              Log out{" "}
-            </button>
-          </div>
-        </div>
-      </div>
-      {carsOfUser.length > 0 && (
-        <TableApp title="Cars" columns={columns} data={carsOfUser} />
-      )}
-      <button className={styles.buttonBlack} onClick={handleAddCar}>
-        Add your car
+      <Navigation/>
+      <TableApp title="Cars" data={carsOfUser.cars} />
+      <button
+        className={styles.buttonBlack} 
+        onClick={handleAddCar}>
+          {carsOfUser.cars.length === 0 ? 'Add your car' : "Add one more car"}
       </button>
       <Footer style={{position: 'absolute', bottom: '0px'}}/>
       {!isActivated && (

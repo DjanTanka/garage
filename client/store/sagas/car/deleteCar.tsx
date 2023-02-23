@@ -1,6 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import { deleteCar } from '../../../apolloClient/mutations/car';
-import { ICar } from '../../interfaces';
+import { TCar } from '../../interfaces';
 import { addCarsOfUser } from '../../slices/cars' 
 
 function* deleteCarWatcher() {
@@ -10,7 +10,7 @@ function* deleteCarWatcher() {
 function* deleteCarWorker(payload: any) {
   const { payload: carId } = payload
   try {
-    const cars: ICar[] = yield deleteCar({
+    const cars: TCar[] = yield deleteCar({
       id: carId.carId
   })
   yield put(addCarsOfUser(cars))  

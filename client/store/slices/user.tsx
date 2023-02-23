@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import IUser, { IUserSlice } from '../interfaces';
+import IUser, { IUserSlice } from '../../src/interfaces';
 import { RootState } from './rootReducer';
 
 const initUserData = {
@@ -12,13 +12,13 @@ const initUserData = {
   balance: 0,
   isActivated: true,
   actNum: '',
-  verifyCodeSent: false
-}
+  verifyCodeSent: false,
+};
 
 const initialState: IUserSlice = {
   userData: initUserData,
-  status: ''
-}
+  status: '',
+};
 
 export const userSlice = createSlice({
   name: 'user',
@@ -26,24 +26,29 @@ export const userSlice = createSlice({
   reducers: {
     addUserToState: (state, action: PayloadAction<IUser>) => {
       state.status = 'success';
-      state.userData = { ...state.userData, ...action.payload}
+      state.userData = { ...state.userData, ...action.payload };
     },
+
     verifyCodeSentSuccess: (state) => {
-      state.userData.verifyCodeSent = true
+      state.userData.verifyCodeSent = true;
     },
+
     updateActivateStatus: (state, action: PayloadAction<boolean>) => {
-      state.userData.isActivated = action.payload
+      state.userData.isActivated = action.payload;
     },
+
     logOutUser: () => {
-      return initialState
+      return initialState;
     },
+
     userLoading: (state) => {
-      state.status = 'loading...'
-    }
+      state.status = 'loading...';
+    },
   },
-})
+});
 
-export const selectUser = (state: RootState) => state.user
-export const { addUserToState, verifyCodeSentSuccess, updateActivateStatus, logOutUser, userLoading} = userSlice.actions
+export const selectUser = (state: RootState) => state.user;
+export const { addUserToState, verifyCodeSentSuccess, updateActivateStatus, logOutUser, userLoading } =
+  userSlice.actions;
 
-export default userSlice.reducer
+export default userSlice.reducer;

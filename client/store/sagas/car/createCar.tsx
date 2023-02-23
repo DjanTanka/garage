@@ -1,6 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import { createCar } from '../../../apolloClient/mutations/car';
-import { ICar } from '../../interfaces';
+import { TCar } from '../../interfaces';
 import { addCarsOfUser } from '../../slices/cars' 
 
 function* addCarWatcher() {
@@ -15,13 +15,13 @@ function* addCarWorker(payload: any) {
     ...carInput}
   } = payload
   try {
-    const car: ICar[] = yield createCar({
+    const car: TCar[] = yield createCar({
       carInput
   })
   yield put(addCarsOfUser(car))  
   yield setModalAddCar(false)
   } catch (err: any) {
-    console.log('---err', err)
+    
     setinfoAttention(err.message);
     setAttention(true)
   }

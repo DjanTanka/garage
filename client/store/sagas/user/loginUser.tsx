@@ -13,7 +13,6 @@ function* loginUserWorker(payload: ICreateUserPayload) {
     const tokens: ITokens = yield loginUser({
      userLoginInput
     })
-    console.log('---tokens', tokens)
     yield localStorage.setItem('usersTokenAGarage', tokens.login.tokenA)
     yield localStorage.setItem('usersTokenRGarage', tokens.login.tokenR)
     yield put(addUserToState(tokens.login.user))  

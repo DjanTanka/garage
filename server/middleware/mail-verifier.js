@@ -14,6 +14,7 @@ class MailService {
   }
 
   async sendActivationMail(to, activationCode) {
+    console.log('---activationCode', activationCode)
     try {
       await this.transporter.sendMail({
         from: "testsendvolyntseva@gmail.com",

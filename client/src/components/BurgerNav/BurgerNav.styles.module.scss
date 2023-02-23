@@ -1,0 +1,28 @@
+@import '../../styles/mixins';
+@import '../../styles/colors';
+
+.wrapper {
+  height: 100vh;
+  width: 30%;
+  background-color: $navFooterModal-background;
+
+  position: absolute;
+  right: 0;
+  top: 128px;
+  z-index: 1;
+
+  transition: right 0.3s;
+  transform: translateX(100%);
+  
+  @media (max-width: 640px) {
+    width: 50%;
+  }
+}
+
+.wrapperOpen {
+  right: 30%;
+ 
+  @media (max-width: 640px) {
+    right: 50%;
+  }
+}

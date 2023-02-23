@@ -135,10 +135,6 @@ $heightOfNav: 10vh;
   @include blackBackground;
 }
 
-.opacity {
-  opacity: 0.4;
-}
-
 @media (max-width: 640px) {
   .nav {
     justify-content: space-around;

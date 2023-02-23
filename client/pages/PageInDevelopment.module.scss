@@ -1,0 +1,29 @@
+.inWorkSection {
+    height: 100vh;
+    margin: auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.title {
+    font-family: 'Circe';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%; 
+}
+
+.logo {
+    max-width: 300px;
+    max-height: 200px;
+    transition: all .3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.2);
+    transition: all .3s ease;
+}
